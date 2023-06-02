@@ -171,3 +171,42 @@ h2{
 		border-radius: 20px;
     border-width: 5px;
   }
+
+  /* FOOTER */
+
+	footer{
+		background-color: transparent;
+		padding: 20px;
+		color: aliceblue;
+	}
+
+	.footer-container{
+		display: flex;
+		justify-content: space-between;
+    align-items: center;
+		/* flex-wrap: wrap; */
+	}
+
+
+	.footer-column a{
+		display: flexbox;
+		color: black;
+		text-decoration: none;
+		margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+	}
+
+	.social-icons a{
+		display: flex;
+		margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+	}
+
+	.footer-bottom{
+		text-align: center;
+		font-size: 20px;
+    color: black;
+	}
+
