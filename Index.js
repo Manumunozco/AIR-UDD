@@ -1,45 +1,102 @@
 
 
-// SAVE THE DATA
-const data = [];
+// ====== SAVE THE DATA ======
 
+// ASIGNA ELEMENTO A VARIABLE ADDBUTTON
+const addButton = document.getElementById("saveButton")
+// GUARDAR INFO AL HACER EL CLICK
+addButton.addEventListener("click", saveData)
+// DECLARA VARIABLE PRINCIPAL
+let data = [];
+
+// INICIALIZAR VARIABLE
 const selectedRecordIndex = -1;
 
-function saveData() {
+// ====== DECLARAR FUNCIONES ======
+
+function saveData(event) {
+    // PREVENTDEFAULT CANCELA EL EVENTO Y NO ENVIA LOS DATOS AL SERVIDOR
+    event.preventDefault()
     const name = document.getElementById("nameInput").value;
     const passport = document.getElementById("passportInput").value;
     const leaveDate = document.getElementById("leaveDateInput").value;
     const returnDate = document.getElementById("returnDateInput").value;
     const fromCity = document.getElementById("fromCityInput").value;
     const toCity = document.getElementById("toCityInput").value;
-    localStorage.setItem('name', name);
-    localStorage.setItem('passport', passport);
-    localStorage.setItem('leaveDate', leaveDate);
-    localStorage.setItem('returnDate', returnDate);
-    localStorage.setItem('fromCity', fromCity);
-    localStorage.setItem('toCity', toCity);
+    // localStorage.setItem('name', name);
+    // localStorage.setItem('passport', passport);
+    // localStorage.setItem('leaveDate', leaveDate);
+    // localStorage.setItem('returnDate', returnDate);
+    // localStorage.setItem('fromCity', fromCity);
+    // localStorage.setItem('toCity', toCity);
 
+
+let id = Date.now()
+
+// CREAR OBJETO
     const newData = {
         name: name,
         passport: passport,
         leaveDate: leaveDate,
         returnDate: returnDate,
         fromCity: fromCity,
-        toCity: toCity
+        toCity: toCity,
+        id
         };
 
-    if (selectedRecordIndex === -1) {
-        data.push(newData);
-        }
-    else {
-        data[selectedRecordIndex] = newData;
-        selectedRecordIndex = -1;
-        }
+        // AGREGA NUEVOS DATOS AL ARRAY
+        data.push(newData)
+
+        saveDataLS()
+        console.log(data)
+
+    // if (selectedRecordIndex === -1) {
+    //     data.push(newData);
+    //     }
+    // else {
+    //     data[selectedRecordIndex] = newData;
+    //     selectedRecordIndex = -1;
+    //     }
 
     clearForm();
-
-    updateDataView();
+    bringData();
+    // updateDataView();
 }
+
+// ALMACENAR ARRAY EN LOCALSTORAGE
+const saveDataLS = ()=>{
+    localStorage.setItem("info", JSON.stringify(data))
+}
+
+const form = document.getElementById("form-container")
+
+const formContainer = document.getElementById("dataForm");
+
+const bringData = ()=>{
+    // OBTENER DATOS DESDE LS
+    const dataLS = localStorage.getItem("info")
+    // JSONPARSE DEVUELVE LOS DATOS A OBJETOS
+    data = JSON.parse(dataLS)
+    console.log(data)
+    // LIMPIA EL CONTENIDO
+    formContainer.innerHTML = "";
+    // RECORRE EL ARRAY CON FOREACH
+    data.forEach((element)=>{
+    // DIBUJAR ELEMENTOS EN WEB
+    formContainer.innerHTML += `
+    <h1>${element.name}</h1>
+    <h1>${element.passport}</h1>
+    <h1>${element.leaveDate}</h1>
+    <h1>${element.returnDate}</h1>
+    <h1>${element.fromCity}</h1>
+    <h1>${element.toCity}</h1>
+    <button>Edit</button>
+    <button>Delete</button>
+    `
+    })
+}
+
+
 
 // EDIT DATA
 
@@ -65,18 +122,17 @@ function deleteData(index) {
 
 // CLEAN THE FORM
 
-function clearForm() {
-    document.getElementById("nameInput").value = "";
-    document.getElementById("passportInput").value = "";
-    document.getElementById("leaveDateInput").value = "";
-    document.getElementById("returnDateInput").value = "";
-    document.getElementById("fromCityInput").value = "";
-    document.getElementById("toCityInput").value = "";
+function clearForm() { form.reset()
+    // document.getElementById("nameInput").value = "";
+    // document.getElementById("passportInput").value = "";
+    // document.getElementById("leaveDateInput").value = "";
+    // document.getElementById("returnDateInput").value = "";
+    // document.getElementById("fromCityInput").value = "";
+    // document.getElementById("toCityInput").value = "";
 }
 
 function updateDataView() {
-    const formContainer = document.getElementById("dataForm");
-    formContainer.innerHTML = "";
+    
 
     for (let i = 0; i < data.length; i++) {
     const record = data[i];
@@ -121,4 +177,3 @@ function updateDataView() {
     formContainer.appendChild(recordElement);
   }
 }
-console.log(data)

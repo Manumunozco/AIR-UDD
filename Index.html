@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT2-CRUD&LOCALSTORAGE</title>
+    <link rel="stylesheet" href="Assets/Css/Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NavBar -->
+
+    <style>
+        body {
+            background-image: url("Assets/Img/Background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+    </style>
+    <nav>
+        <div class="Nav-container">
+            <ul id="Nav-list">
+                <a href="#start"><img id="logo-navbar" src="Assets/Img/Logo.png" alt="airplane"></a>
+                <h1 class="h1top">AIR UDD</h1>
+                <li><a href="#Manage-booking">Manage Booking</a></li>
+                <li><a href="#check-in">Check in</a></li>
+                <li><a href="#Book-a-rental-car">Book a rental car</a></li>
+                <li><a href="#Book-accommodation">Book Accommodation</a></li>
+                <li><a href="#Help">Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- DataBase -->
+
+    <header>
+        <h2>Book your Trip</h2>
+        <div id="databaseInput">
+            <form id="form-container">
+                <div id="name-container">
+                    <label for="name" class"form-label">Name:</label>
+                    <input type="text" id="nameInput" placeholder="Enter your name here">
+                </div>
+                <div id="passport-container">
+                    <label for="passport" class"form-label">Passport:</label>
+                    <input type="text" id="passportInput" placeholder="Enter your passport here">
+                </div>
+                <div id="date-container">
+                    <label for="leaveDate" class"form-label">Leave on:</label>
+                    <input type="date" id="leaveDateInput" placeholder="Enter your Holiday date">
+                    <label for="returnDate" class"form-label">Return on:</label>
+                    <input type="date" id="returnDateInput" placeholder="Enter your Holiday date">
+                </div>
+                <div id="city-container">
+                    <label for="fromCity" class"form-label">From:</label>
+                    <input type="text" id="fromCityInput" placeholder="Airport or city">
+                    <label for="toCity" class"form-label">To:</label>
+                    <input type="text" id="toCityInput" placeholder="Airport or city">
+                </div>
+                    <button id=saveButton>Save</button>
+            </form>
+                <div id="dataForm"></div>
+        </div>
+    </header>
+
+    <footer>
+        <!-- <div class="footer-container">
+            <div class="footer-column social-icons">
+                <a href="#"><img id="logo-facebook" src="Assets/Img/facebook.png" alt="fbk" width="20"></a>
+                <a href="#"><img id="logo-instagram" src="Assets/Img/instagram.png" alt="Insta" width="20"></a>
+                <a href="#"><img id="logo-Twiter" src="Assets/Img/twitter.png" alt="twt" width="20"></a>
+                <a href="#"><img id="logo-Linkedn" src="Assets/Img/linkedin.png" alt="lkd" width="20"></a>
+            </div>
+        </div> -->
+        <div class="footer-bottom">
+            <p>Copyright © 2023 Manuel Munoz</p>
+        </div>
+    </footer>
+    <script src="Index.js"></script>
+</body>
+
+</html>
