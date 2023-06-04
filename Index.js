@@ -1,5 +1,3 @@
-
-
 // ====== SAVE THE DATA ======
 
 // ASIGNA ELEMENTO A VARIABLE ADDBUTTON
@@ -8,21 +6,29 @@ const addButton = document.getElementById("saveButton")
 addButton.addEventListener("click", saveData)
 // DECLARA VARIABLE PRINCIPAL
 let data = [];
+let editmode = false
+let idEditing = null
 
 // INICIALIZAR VARIABLE
-const selectedRecordIndex = -1;
+// const selectedRecordIndex = -1;
+// elementos html del formulario
+    const nameInput = document.getElementById("nameInput");
+    const passport = document.getElementById("passportInput");
+    const leaveDate = document.getElementById("leaveDateInput");
+    const returnDate = document.getElementById("returnDateInput");
+    const fromCity = document.getElementById("fromCityInput");
+    const toCity = document.getElementById("toCityInput");
 
 // ====== DECLARAR FUNCIONES ======
 
 function saveData(event) {
-    // PREVENTDEFAULT CANCELA EL EVENTO Y NO ENVIA LOS DATOS AL SERVIDOR
+    // PREVENTDEFAULT previene que la pagina se recargue al hacer click
     event.preventDefault()
-    const name = document.getElementById("nameInput").value;
-    const passport = document.getElementById("passportInput").value;
-    const leaveDate = document.getElementById("leaveDateInput").value;
-    const returnDate = document.getElementById("returnDateInput").value;
-    const fromCity = document.getElementById("fromCityInput").value;
-    const toCity = document.getElementById("toCityInput").value;
+if (nameInput.value == '' || passport.value == '' || leaveDate.value == '' || returnDate.value == '' || fromCity.value == '' || toCity.value == ''){
+    alert('hay campos vacios')
+    return
+}
+
     // localStorage.setItem('name', name);
     // localStorage.setItem('passport', passport);
     // localStorage.setItem('leaveDate', leaveDate);
@@ -33,34 +39,34 @@ function saveData(event) {
 
 let id = Date.now()
 
+if (editmode){
+    id = idEditing
+}
+
 // CREAR OBJETO
     const newData = {
-        name: name,
-        passport: passport,
-        leaveDate: leaveDate,
-        returnDate: returnDate,
-        fromCity: fromCity,
-        toCity: toCity,
+        name: nameInput.value,
+        passport: passport.value,
+        leaveDate: leaveDate.value,
+        returnDate: returnDate.value,
+        fromCity: fromCity.value,
+        toCity: toCity.value,
         id
         };
-
-        // AGREGA NUEVOS DATOS AL ARRAY
+if (editmode){
+    const index = data.findIndex((registro)=>registro.id == id)
+    data[index] = newData
+    saveDataLS()
+    bringData()
+    clearForm()
+    idEditing = null
+    editmode = false
+    } else {
         data.push(newData)
-
         saveDataLS()
-        console.log(data)
-
-    // if (selectedRecordIndex === -1) {
-    //     data.push(newData);
-    //     }
-    // else {
-    //     data[selectedRecordIndex] = newData;
-    //     selectedRecordIndex = -1;
-    //     }
-
-    clearForm();
-    bringData();
-    // updateDataView();
+        clearForm();
+        bringData();
+    }
 }
 
 // ALMACENAR ARRAY EN LOCALSTORAGE
@@ -77,6 +83,10 @@ const bringData = ()=>{
     const dataLS = localStorage.getItem("info")
     // JSONPARSE DEVUELVE LOS DATOS A OBJETOS
     data = JSON.parse(dataLS)
+    // SI EL LC NO TIENE INFO, DEJA EL ARREGLO VACIO
+    if(!data){
+        data = []
+    }
     console.log(data)
     // LIMPIA EL CONTENIDO
     formContainer.innerHTML = "";
@@ -84,14 +94,16 @@ const bringData = ()=>{
     data.forEach((element)=>{
     // DIBUJAR ELEMENTOS EN WEB
     formContainer.innerHTML += `
+   <div class="card">
     <h1>${element.name}</h1>
-    <h1>${element.passport}</h1>
-    <h1>${element.leaveDate}</h1>
-    <h1>${element.returnDate}</h1>
-    <h1>${element.fromCity}</h1>
-    <h1>${element.toCity}</h1>
-    <button>Edit</button>
-    <button>Delete</button>
+    <h3>${element.passport}</h3>
+    <h4>${element.leaveDate}</h4>
+    <p>${element.returnDate}</p>
+    <p>${element.fromCity}</p>
+    <p>${element.toCity}</p>
+    <button onclick="editData('${element.id}')">Edit</button>
+    <button onclick="deleteData('${element.id}')">Delete</button>
+    </div>
     `
     })
 }
@@ -100,80 +112,85 @@ const bringData = ()=>{
 
 // EDIT DATA
 
-function editData(index) {
-    const record = data[index];
-        document.getElementById("nameInput").value = record.name;
-        document.getElementById("passportInput").value = record.passport;
-        document.getElementById("leaveDateInput").value = record.leaveDate;
-        document.getElementById("returnDateInput").value = record.returnDate;
-        document.getElementById("fromCityInput").value = record.fromCity;
-        document.getElementById("toCityInput").value = record.toCity;
+function editData(id) {
+    const index = data.findIndex((registro)=>registro.id == id)
+    const registroEditado = data[index]
+    nameInput.value = registroEditado.name
+    passport.value = registroEditado.passport
+    leaveDate.value = registroEditado.leaveDate
+    returnDate.value = registroEditado.returnDate
+    fromCity.value = registroEditado.fromCity
+    toCity.value = registroEditado.toCity
+    idEditing = id
+    editmode = true
+    // const record = data[index];
+    //     document.getElementById("nameInput").value = record.name;
+    //     document.getElementById("passportInput").value = record.passport;
+    //     document.getElementById("leaveDateInput").value = record.leaveDate;
+    //     document.getElementById("returnDateInput").value = record.returnDate;
+    //     document.getElementById("fromCityInput").value = record.fromCity;
+    //     document.getElementById("toCityInput").value = record.toCity;
 
-        selectedRecordIndex = index;
+    //     selectedRecordIndex = index;
 }
 
 // DELETE DATA
 
-function deleteData(index) {
-    data.splice(index, 1);
-    selectedRecordIndex = -1;
-    updateDataView();
-}
+function deleteData(id) {
+const index = data.findIndex((registro)=>registro.id == id)
+data.splice(index, 1)
+saveDataLS()
+bringData()
+   }
 
 // CLEAN THE FORM
 
-function clearForm() { form.reset()
-    // document.getElementById("nameInput").value = "";
-    // document.getElementById("passportInput").value = "";
-    // document.getElementById("leaveDateInput").value = "";
-    // document.getElementById("returnDateInput").value = "";
-    // document.getElementById("fromCityInput").value = "";
-    // document.getElementById("toCityInput").value = "";
-}
+function clearForm() { form.reset()}
 
-function updateDataView() {
+// function updateDataView() {
     
 
-    for (let i = 0; i < data.length; i++) {
-    const record = data[i];
+//     for (let i = 0; i < data.length; i++) {
+//     const record = data[i];
 
-    const recordElement = document.createElement("div");
-    recordElement.classList.add("record");
+//     const recordElement = document.createElement("div");
+//     recordElement.classList.add("record");
 
-    const nameElement = document.createElement("p");
-    nameElement.textContent = "Name: " + record.name;
-    recordElement.appendChild(nameElement);
+//     const nameElement = document.createElement("p");
+//     nameElement.textContent = "Name: " + record.name;
+//     recordElement.appendChild(nameElement);
 
-    const passportElement = document.createElement("p");
-    passportElement.textContent = "Passport: " + record.passport;
-    recordElement.appendChild(passportElement);
+//     const passportElement = document.createElement("p");
+//     passportElement.textContent = "Passport: " + record.passport;
+//     recordElement.appendChild(passportElement);
 
-    const leaveDateElement = document.createElement("p");
-    leaveDateElement.textContent = "Leave Date: " + record.leaveDate;
-    recordElement.appendChild(leaveDateElement);
+//     const leaveDateElement = document.createElement("p");
+//     leaveDateElement.textContent = "Leave Date: " + record.leaveDate;
+//     recordElement.appendChild(leaveDateElement);
 
-    const returnDateElement = document.createElement("p");
-    returnDateElement.textContent = "Return Date: " + record.returnDate;
-    recordElement.appendChild(returnDateElement);
+//     const returnDateElement = document.createElement("p");
+//     returnDateElement.textContent = "Return Date: " + record.returnDate;
+//     recordElement.appendChild(returnDateElement);
 
-    const fromCityElement = document.createElement("p");
-    fromCityElement.textContent = "From: " + record.fromCity;
-    recordElement.appendChild(fromCityElement);
+//     const fromCityElement = document.createElement("p");
+//     fromCityElement.textContent = "From: " + record.fromCity;
+//     recordElement.appendChild(fromCityElement);
 
-    const toCityElement = document.createElement("p");
-    toCityElement.textContent = "To: " + record.toCity;
-    recordElement.appendChild(toCityElement);
+//     const toCityElement = document.createElement("p");
+//     toCityElement.textContent = "To: " + record.toCity;
+//     recordElement.appendChild(toCityElement);
 
-    const editButton = document.createElement("button");
-    editButton.textContent = "Edit";
-    editButton.addEventListener("click", editData.bind(null, i));
-    recordElement.appendChild(editButton);
+//     const editButton = document.createElement("button");
+//     editButton.textContent = "Edit";
+//     editButton.addEventListener("click", editData.bind(null, i));
+//     recordElement.appendChild(editButton);
 
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.addEventListener("click", deleteData.bind(null, i));
-    recordElement.appendChild(deleteButton);
+//     const deleteButton = document.createElement("button");
+//     deleteButton.textContent = "Delete";
+//     deleteButton.addEventListener("click", deleteData.bind(null, i));
+//     recordElement.appendChild(deleteButton);
 
-    formContainer.appendChild(recordElement);
-  }
-}
+//     formContainer.appendChild(recordElement);
+//   }
+// }
+bringData()
