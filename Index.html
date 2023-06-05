@@ -18,6 +18,15 @@
     <!-- NavBar -->
 
     <style>
+        @media (max-width:768px){
+            body {
+            background-image: url("Assets/Img/Background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+            }
         body {
             background-image: url("Assets/Img/Background.jpg");
             background-size: cover;
@@ -46,23 +55,27 @@
         <h2>Book your Trip</h2>
         <div id="databaseInput">
             <form id="form-container">
-                <div id="name-container">
+                <div id="left-container">
                     <label for="name" class"form-label">Name:</label>
                     <input type="text" id="nameInput" placeholder="Enter your name here">
                 </div>
-                <div id="passport-container">
+                <div id="right-container">
                     <label for="passport" class"form-label">Passport:</label>
                     <input type="text" id="passportInput" placeholder="Enter your passport here">
                 </div>
-                <div id="date-container">
+                <div id="left-container">
                     <label for="leaveDate" class"form-label">Leave on:</label>
                     <input type="date" id="leaveDateInput" placeholder="Enter your Holiday date">
+                </div>
+                <div id="right-container">
                     <label for="returnDate" class"form-label">Return on:</label>
                     <input type="date" id="returnDateInput" placeholder="Enter your Holiday date">
                 </div>
-                <div id="city-container">
+                <div id="left-container">
                     <label for="fromCity" class"form-label">From:</label>
                     <input type="text" id="fromCityInput" placeholder="Airport or city">
+                </div>
+                <div id="right-container">
                     <label for="toCity" class"form-label">To:</label>
                     <input type="text" id="toCityInput" placeholder="Airport or city">
                 </div>
