@@ -50,26 +50,16 @@ h2{
   height: 100px;
   width: auto;
   margin-top: 10px;
-  margin-bottom: 150px;
+  margin-bottom: 200px;
+  margin-right: 240px;
 }
 
-
-
-      .card {
-        color: black;
-        font-size: 20px;
-        display: none;
-        margin-top: 10px;
-        border-color: black;
-        background-color: rgb(105, 147, 238);
-    border-radius: 5px;
-    width: auto;
+  .card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 100%;
     }
-    
-
-
-
-
 
 
 }
@@ -92,6 +82,7 @@ nav{
   /* justify-content: center;
   text-align: center; */
   font-family: 'Space Grotesk', sans-serif;
+  font-weight: bold;
 }
 
 #logo-navbar{
@@ -125,9 +116,33 @@ h1{
     display: flex;
     margin-top: 10px 10px 10px 10px;
     border-color: black;
-    background-color: rgb(105, 147, 238);
+    background-color: rgb(203, 206, 212);
 border-radius: 5px;
 }
+
+.buttonCard{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+margin-bottom: 20px;
+font-size: 20px;
+border-radius: 20px;
+}
+
+.edit{
+  background-color: black;
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.delete{
+  background-color: black;
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+
 button {
   background-color: transparent;
 }
@@ -196,7 +211,7 @@ h2{
   .data-item input {
     width: 200px;
   } */
-  
+/*   
   .record{
     border: 1px solid #ccc;
   padding: 10px;
@@ -208,7 +223,7 @@ h2{
   
   .record button {
     margin-top: 10px;
-  }
+  } */
   
 
   /* DATA BASE */
@@ -260,7 +275,7 @@ h2{
     margin-top: 20px;
     margin-bottom: 80px;
     font-weight: bold;
-    max-width: max-content;
+    width: 100px;
     float: left;
     clear: left;
     border-color: black;
@@ -303,6 +318,7 @@ h2{
 		text-align: center;
 		font-size: 20px;
     color: black;
+    margin-top: 170px;
 	}
   *{padding: 0;
 		margin: 0;

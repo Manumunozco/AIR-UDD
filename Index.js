@@ -95,8 +95,8 @@ const bringData = ()=>{
     <p>${element.fromCity}</p>
     <p>${element.toCity}</p>
     <div class="buttonCard">
-    <button onclick="editData('${element.id}')">Edit</button>
-    <button onclick="deleteData('${element.id}')">Delete</button>
+    <button class="edit" onclick="editData('${element.id}')">Edit</button>
+    <button class="delete" onclick="deleteData('${element.id}')">Delete</button>
     </div>
     </div>
     `
