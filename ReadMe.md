@@ -8,7 +8,7 @@ In addition, we can save our data in local storage, using DOM object structures,
 
 Visual
 
-(agregar aqui captura de pantalla de mi pagina)
+<a href="#start"><img id="" src="Assets\Img\image.png" alt="visual"></a>
 
 Starting
 
@@ -61,6 +61,9 @@ Thanks
 
     1.- Special thanks to our coach, Brayan Diaz C, https://github.com/brayandiazc, who was in charge of teaching us and delivering the tools.
     2.- And to our coach Jonathan Araya for his help with advice and consultations.
+
+    3.- Photo by <a href="https://unsplash.com/@cyrus_smith?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marc Thunis</a> on <a href="https://unsplash.com/photos/3UY5DMqdJ7o?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
 
 CREATED BY MANUEL MUNOZ CONEJEROS
 

@@ -111,15 +111,26 @@ h1{
 }
 
 .card {
-    color: black;
+    color: rgb(245, 244, 244);
     font-size: 20px;
     display: flex;
     margin-top: 10px 10px 10px 10px;
-    border-color: black;
-    background-color: rgb(203, 206, 212);
+    border-color: rgb(250, 248, 248);
+background-color: transparent;
+    background-image: url("C:\Users\egalv\Desktop\IT Manu\Bootcamp UDD\Modulo 1\Proyecto-2\Assets\Img\Background-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 border-radius: 5px;
 }
 
+#leaveDateInput {
+  color: white;
+}
+
+#returnDateInput{
+  color: white;
+}
 .buttonCard{
   display: grid;
   justify-content: center;
@@ -130,16 +141,16 @@ border-radius: 20px;
 }
 
 .edit{
-  background-color: black;
+  background-color: rgb(252, 251, 251);
   border-radius: 20px;
-  color: white;
+  color: rgb(5, 5, 5);
   margin-bottom: 10px;
 }
 
 .delete{
-  background-color: black;
+  background-color: rgb(252, 250, 250);
   border-radius: 20px;
-  color: white;
+  color: rgb(3, 3, 3);
   margin-bottom: 10px;
 }
 
@@ -161,7 +172,7 @@ li{
 }
 
 a{
-    color: rgb(250, 248, 248);
+    color: rgb(255, 253, 253);
 }
 
 ul{
@@ -185,7 +196,8 @@ ul{
 
 h2{
     font-size: 30px;
-    margin: 40px 40px 20px 40px;
+    margin: 40px 40px 30px 80px;
+  color: rgb(255, 254, 254);
 }
 
 /* FORM RESULTS */
@@ -240,20 +252,21 @@ h2{
   
 #left-container{
 
-    color: black;
+    color: rgb(253, 251, 251);
     font-weight: bold;
     float: left;
     clear: left;
     width: 50%;
-    margin-bottom: 10px;
+  margin-bottom: 10px;
      }
   #right-container{
 
-    color: black;
+    color: rgb(255, 252, 252);
     font-weight: bold;
     float: right;
     clear: right;
     width: 50%;
+  
   }
   input[type="text"],
   input[type="date"] {
@@ -263,11 +276,11 @@ h2{
     display: inline;
     background-color: transparent;
     text-align: center;
-    border-color: black;
+    border-color: rgb(250, 249, 249);
     border-radius: 40px;
   }
   ::placeholder{
-    color: rgb(5, 5, 5);
+    color: rgb(253, 252, 252);
   }
 
   #saveButton{
@@ -278,8 +291,9 @@ h2{
     width: 100px;
     float: left;
     clear: left;
-    border-color: black;
+    border-color: rgb(252, 248, 248);
     border-radius: 40px;
+    color: rgb(252, 247, 247);
   }
 
   /* FOOTER */
@@ -287,7 +301,7 @@ h2{
 	footer{
 		background-color: transparent;
 		padding: 20px;
-		color: aliceblue;
+		color: rgb(253, 251, 251);
 	}
 
 	.footer-container{
@@ -300,7 +314,7 @@ h2{
 
 	.footer-column a{
 		display: flexbox;
-		color: black;
+		color: rgb(252, 250, 250);
 		text-decoration: none;
 		margin-bottom: 10px;
     justify-content: center;
@@ -317,7 +331,7 @@ h2{
 	.footer-bottom{
 		text-align: center;
 		font-size: 20px;
-    color: black;
+    color: rgb(253, 251, 251);
     margin-top: 170px;
 	}
   *{padding: 0;
