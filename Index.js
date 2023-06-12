@@ -26,7 +26,7 @@ function saveData(event) {
     // PREVENTDEFAULT previene que la pagina se recargue al hacer click
     event.preventDefault()
 if (nameInput.value == '' || passport.value == '' || leaveDate.value == '' || returnDate.value == '' || fromCity.value == '' || toCity.value == ''){
-    alert('hay campos vacios')
+    alert('Please, enter all information')
     return
 }
 
