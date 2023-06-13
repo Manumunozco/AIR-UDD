@@ -1,158 +1,153 @@
 
-@media (max-width:768px){
+@media (max-width: 768px){
 
-  .nav-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0%;
-}
- 
-ul{
-  display: flex;
-   flex-direction: column;
-  justify-content: center;
-  background-color: transparent;
-  margin-bottom: 10px;
-} 
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        margin-bottom: 10px;
+        width: 100%;
+        height: 100%;
+    }
+   
+    #nav-list{
+        display: flex;
+        justify-content: center;
+        align-items: center !important;
+        font-size: 20px;
+    }
 
 h1{
-  display: flex;
-  justify-content: center;
-  font-size: 10px;
-  margin-top: 10px;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 h2{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 600px;
-  width: auto;
-  margin-top: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: auto;
+    margin-top: none;
 }
 
 #form-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  width: auto;
-  margin-top: 10px;
-  margin-bottom: 200px;
-  margin-right: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin: 10px;
 }
 
-  .card{
+.card{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-width: 100%;
-    }
-
-
+    width: 100%;
+    height: 100%;
+    margin: 10px;
 }
-
-
-
-
-
-
-
-
-
+}
 
 /* NAV-BAR */
 
 nav{
-  background-color: transparent;
-  position: relative;
-  padding: 10px 20px;
-  /* justify-content: center;
-  text-align: center; */
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: bold;
+    background-color: transparent;
+    position: relative;
+    padding: 10px 20px;
+    /* justify-content: center;
+    text-align: center; */
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: bold;
 }
 
 #logo-navbar{
     max-width: 60px;
     height: auto;
     margin: 10px 10px 10px 10px;
-    
 }
 
 h1{
-  color: rgb(253, 252, 252);
-    font-size: 50px;
+    color: rgb(253, 252, 252);
+    font-size: 40px;
     display: flex;
     margin-top: 0%;
 }
 
-/* .nav-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
 #nav-list{
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-.card {
+.card{
     color: rgb(245, 244, 244);
     font-size: 20px;
     display: flex;
     margin-top: 10px 10px 10px 10px;
     border-color: rgb(250, 248, 248);
-background-color: transparent;
-border-radius: 5px;
+    background-color: transparent;
+    border-radius: 5px;
 }
 
 #leaveDateInput {
-  color: white;
+    color: white;
 }
 
 #returnDateInput{
-  color: white;
+    color: white;
 }
+
 .buttonCard{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-margin-bottom: 20px;
-font-size: 20px;
-border-radius: 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 20px;
 }
 
 .edit{
-  background-color: rgb(252, 251, 251);
-  border-radius: 20px;
-  color: rgb(5, 5, 5);
-  margin-bottom: 10px;
-  border-color: black;
+    background-color: rgb(252, 251, 251);
+    border-radius: 20px;
+    color: rgb(5, 5, 5);
+    margin-bottom: 10px;
+    border-color: black;
 }
 
 .delete{
-  background-color: rgb(252, 250, 250);
-  border-radius: 20px;
-  color: rgb(3, 3, 3);
-  margin-bottom: 10px;
-  border-color: black;
+    background-color: rgb(252, 250, 250);
+    border-radius: 20px;
+    color: rgb(3, 3, 3);
+    margin-bottom: 10px;
+    border-color: black;
 }
 
 button {
-  background-color: transparent;
-}
-p{
-  text-align: center;
-  margin: 10px 10px 10px 10px;
-  
+    background-color: transparent;
 }
 
+p{
+    text-align: center;
+    margin: 10px 10px 10px 10px;
+}
 
 li{
     display: flex;
@@ -174,20 +169,10 @@ ul{
     align-items: center; */
 }
 
-/* FORM */
-
-/* body {
-    background-image: url("Img/Background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-} */
-
 h2{
     font-size: 30px;
     margin: 40px 40px 30px 80px;
-  color: rgb(255, 254, 254);
+    color: rgb(255, 254, 254);
 }
 
 /* FORM RESULTS */
@@ -197,23 +182,22 @@ h2{
     flex-direction: row;
     align-items: center;
     margin-top: 20px;
-  }
-  
-  .data-item {
+}
+
+.data-item {
     display: flex;
     justify-content: space-between;
     width: 300px;
     margin-bottom: 10px;
-  }
-  
+}
   /* .data-item label {
     width: 1500px;
   }
-  
+
   .data-item input {
     width: 200px;
   } */
-/*   
+/*
   .record{
     border: 1px solid #ccc;
   padding: 10px;
@@ -222,50 +206,61 @@ h2{
   .record p {
     margin: 5px 0;
   }
-  
+
   .record button {
     margin-top: 10px;
   } */
-  
 
   /* DATA BASE */
 
-  .form-label {
+.form-label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-  }
+}
 
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 90px;
+    width: 100%;
+    height: 100%;
+}
 #databaseInput {
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: left;
     text-align: left;
-    height: 100vh;
-    margin-left: 40px;
-  }
-  
-#left-container{
+    height: 100%;
+    width: 100%;
+}
 
+#left-container{
     color: rgb(253, 251, 251);
     font-weight: bold;
     float: left;
     clear: left;
-    width: 50%;
-  margin-bottom: 10px;
-     }
-  #right-container{
+    /* width: 50%; */
+    /* height: 100%; */
+    margin: 10px;
+}
 
+#right-container{
     color: rgb(255, 252, 252);
     font-weight: bold;
     float: right;
     clear: right;
-    width: 50%;
-  
+    /* width: 50%; */
+    /* height: 100%; */
+    margin: 10px;
   }
-  input[type="text"],
-  input[type="date"] {
+
+input[type="text"],
+input[type="date"] {
     width: 300px;
     padding: 5px;
     margin: auto;
@@ -274,12 +269,13 @@ h2{
     text-align: center;
     border-color: rgb(250, 249, 249);
     border-radius: 40px;
-  }
-  ::placeholder{
-    color: rgb(253, 252, 252);
-  }
+}
 
-  #saveButton{
+::placeholder{
+    color: rgb(253, 252, 252);
+}
+
+#saveButton{
     background-color: transparent;
     margin-top: 20px;
     margin-bottom: 80px;
@@ -290,32 +286,31 @@ h2{
     border-color: rgb(252, 248, 248);
     border-radius: 40px;
     color: rgb(252, 247, 247);
-  }
+}
 
   /* FOOTER */
 
-	footer{
+footer{
 		background-color: transparent;
 		padding: 20px;
 		color: rgb(253, 251, 251);
-	}
+}
 
-	.footer-container{
+.footer-container{
 		display: flex;
 		justify-content: space-between;
     align-items: center;
 		/* flex-wrap: wrap; */
-	}
+}
 
-
-	.footer-column a{
+.footer-column a{
 		display: flexbox;
 		color: rgb(252, 250, 250);
 		text-decoration: none;
 		margin-bottom: 10px;
     justify-content: center;
     align-items: center;
-	}
+}
 
 	/* .social-icons a{
 		display: flex;
@@ -324,12 +319,15 @@ h2{
     justify-content: center;
 	} */
 
-	.footer-bottom{
+.footer-bottom{
 		text-align: center;
 		font-size: 20px;
     color: rgb(253, 251, 251);
     margin-top: 170px;
-	}
-  *{padding: 0;
+}
+
+/* *{
+    padding: 0;
 		margin: 0;
-		box-sizing: border-box;}
+		box-sizing: border-box;
+} */
